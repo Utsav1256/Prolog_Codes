@@ -6,18 +6,18 @@ female(liz).
 female(ann).
 
 # parent of relation
-parent_of(pam, bob).
-parent_of(tom, bob).
-parent_of(tom, liz).
-parent_of(bob, ann).
-parent_of(bob, pat).
-parent_of(pat, jim).
+parent_of(bob, pam).
+parent_of(bob, tom).
+parent_of(liz, pam).
+parent_of(ann, bob).
+parent_of(pat, bob).
+parent_of(jim, pat).
 
 # father_of & mother_of relation
-father_of(X, Y):- male(X), parent_of(X, Y).
-mother_of(X, Y):- female(X), parent_of(X, Y).
+father_of(X, Y):- male(Y), parent_of(X, Y).
+mother_of(X, Y):- female(Y), parent_of(X, Y).
 
 #  sister_of & brother_of
-sister_of(Y, Z):- female(Y), parent_of(X, Y), parent_of(X, Z), Y \= Z.
-brother_of(Z, Y):- male(Z), parent_of(X, Y), parent_of(X, Z), Z \= Y.
+sister_of(Y, Z):- female(Z), parent_of(Y, X), parent_of(Z, X), Y \= Z.
+brother_of(Z, Y):- male(Y), parent_of(Z, X), parent_of(Y, X), Z \= Y.
 
