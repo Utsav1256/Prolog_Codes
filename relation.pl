@@ -21,3 +21,6 @@ mother_of(X, Y):- female(Y), parent_of(X, Y).
 sister_of(Y, Z):- female(Z), parent_of(Y, X), parent_of(Z, X), Y \= Z.
 brother_of(Z, Y):- male(Y), parent_of(Z, X), parent_of(Y, X), Z \= Y.
 
+# grandMother_of & grandFather_of
+grandMother_of(X, Y):- female(Y), parent_of(X,Z), parent_of(Z, Y)
+grandFather_of(X, Y):- male(Y), parent_of(X, Z), parent_of(Z, Y)
