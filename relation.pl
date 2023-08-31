@@ -17,3 +17,7 @@ parent_of(pat, jim).
 father_of(X, Y):- male(X), parent_of(X, Y).
 mother_of(X, Y):- female(X), parent_of(X, Y).
 
+#  sister_of & brother_of
+sister_of(Y, Z):- female(Y), parent_of(X, Y), parent_of(X, Z), Y \= Z.
+brother_of(Z, Y):- male(Z), parent_of(X, Y), parent_of(X, Z), Z \= Y.
+
